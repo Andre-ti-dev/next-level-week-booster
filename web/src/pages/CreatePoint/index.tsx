@@ -167,7 +167,7 @@ const CreatePoint = () => {
 
           <div className="field-group">
             <div className="field">
-              <label htmlFor="email">E=mail</label>
+              <label htmlFor="email">E-mail</label>
               <input 
                 type="email"
                 name="email"
