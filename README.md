@@ -20,3 +20,11 @@ O projeto Booster tem foco no aprendizado de uma das stacks mais utilizadas no d
 - TypeScript
   - Adiciona tipagem ao nosso JavaScript melhorando a organização do nosso código, pois podemos definir os tipos esperados de entrada e saída de dados na aplicação e facilitando os testes.
   - Outra vantagem é que utilizando o editor Visual Studio Code temos o auxílio do InteliSense para desenvolver o nosso código e melhorando a produtividade.
+
+📝  Anotações realizadas durante o desenvolvimento do projeto: [NOTION](https://www.notion.so/Ecoleta-Booster-52cb73b2f5b14f4e8460d4d7cde8763a)
+  
+### Landing Page
+[![LANDING PAGE](https://raw.githubusercontent.com/Andre-ti-dev/next-level-week-booster/master/screenshots/landing-page.png)]()
+
+### Cadastro do ponto de coleta
+[![LANDING PAGE](https://raw.githubusercontent.com/Andre-ti-dev/next-level-week-booster/master/screenshots/cadastro-do-ponto-de-coleta.png)]()
