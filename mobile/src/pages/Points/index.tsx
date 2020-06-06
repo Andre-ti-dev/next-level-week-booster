@@ -46,11 +46,14 @@ const Points = () => {
         return;
       }
 
-      const location = await Location.getCurrentPositionAsync();
-
-      const { latitude, longitude } = location.coords;
-
-      setInitialPosition([latitude, longitude]);
+      await Location.getCurrentPositionAsync()
+      .then(location => {
+        const { latitude, longitude } = location.coords;
+        setInitialPosition([latitude, longitude]);
+      })
+      .catch(error => {
+        Alert.alert(error);
+      });
     }
 
     loadPosition();
@@ -136,7 +139,7 @@ const Points = () => {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{paddingHorizontal: 20}}
+        contentContainerStyle={{paddingHorizontal: 30}}
       >
         {items.map(item => (
           <TouchableOpacity 
