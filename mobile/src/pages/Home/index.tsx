@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
-import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, TextInput, KeyboardAvoidingView, Platform, Image, StyleSheet, ImageBackground } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+  const [uf, setUf] = useState('');
+  const [city, setCity] = useState('');
+
   const navigation = useNavigation();
 
   function handleNavigateToPoints() {
-    navigation.navigate('Points');
+    navigation.navigate('Points', {
+      uf,
+      city
+    });
   }
 
   return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : undefined}
+      style={{ flex: 1 }}
+    >
       <ImageBackground 
         source={require('../../assets/home-background.png')}
         style={styles.container}
@@ -25,7 +35,26 @@ const Home = () => {
           </Text>
         </View>
         <View style={styles.footer}>
-          <RectButton style={styles.button} onPress={handleNavigateToPoints}>
+          <TextInput
+            style={styles.input}
+            placeholder="Digite a UF"
+            maxLength={2}
+            autoCapitalize="characters"
+            autoCorrect={false}
+            value={uf}
+            onChangeText={setUf}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Digite a cidade"
+            autoCorrect={false}
+            value={city}
+            onChangeText={setCity}
+          />
+          <RectButton
+            style={styles.button}
+            onPress={handleNavigateToPoints}
+          >
             <View style={styles.buttonIcon}>
               <Text>
                 <Icon name="arrow-right" color="#fff" size={24} />
@@ -37,6 +66,7 @@ const Home = () => {
           </RectButton>
         </View>
       </ImageBackground>
+    </KeyboardAvoidingView>
     )
 }
 
