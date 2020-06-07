@@ -2,6 +2,7 @@ import path from 'path';
 import express, { request, response } from 'express';
 import routes from './routes';
 import cors from 'cors';
+import { errors } from 'celebrate';
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(routes);
 
 // Servindo arquivos estáticos
 app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+app.use(errors());
 
 // Iniciando servidor
 app.listen(3333);
