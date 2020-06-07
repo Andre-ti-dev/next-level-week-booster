@@ -7,6 +7,10 @@ O projeto é parte da Next Level Week Booster da Rocketseat com o instrutor Dieg
 
 O projeto Booster tem foco no aprendizado de uma das stacks mais utilizadas no desenvolvimento web e mobile que são o Node, React e React Native.
 
+📝  Anotações realizadas durante o desenvolvimento do projeto: [NOTION](https://www.notion.so/Ecoleta-Booster-52cb73b2f5b14f4e8460d4d7cde8763a)
+
+[CAPTURAS DE TELA](/screenshots)
+
 ### Tecnologias utilizadas
 
 - Node
@@ -61,7 +65,3 @@ E execute a aplicação com o comando.
 ```
 $ yarn start
 ```
-
-📝  Anotações realizadas durante o desenvolvimento do projeto: [NOTION](https://www.notion.so/Ecoleta-Booster-52cb73b2f5b14f4e8460d4d7cde8763a)
-
-[CAPTURAS DE TELA](/screenshots)
