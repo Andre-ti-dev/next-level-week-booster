@@ -6,6 +6,7 @@ import MapView, { Marker } from 'react-native-maps';
 import { SvgFromUri as SvgUri } from 'react-native-svg';
 import * as Location from 'expo-location';
 import api from '../../services/api';
+import Emoji from 'react-native-emoji';
 
 interface Item {
   id: number;
@@ -98,7 +99,11 @@ const Points = () => {
       <TouchableOpacity onPress={handleNavigateBack}>
         <Icon name="arrow-left" size={20} color="#34cb79" />
       </TouchableOpacity>
-      <Text style={styles.title}>Bem vindo.</Text>
+      <Text style={styles.title}>
+        <Emoji name="grinning" style={{fontSize: 22}} />
+        {"  "}
+        Bem vindo.
+      </Text>
       <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
 
       <View style={styles.mapContainer}>
