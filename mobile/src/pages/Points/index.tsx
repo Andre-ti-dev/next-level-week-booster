@@ -129,6 +129,7 @@ const Points = () => {
                 />
                 <Text style={styles.mapMarkerTitle}>{point.name.split(' ')[0]}</Text>
               </View>
+              <View style={styles.mapMarkerTriangle} />
             </Marker>
           ))}
         </MapView>
@@ -208,7 +209,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     borderRadius: 8,
     overflow: 'hidden',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   mapMarkerImage: {
@@ -223,6 +224,20 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 13,
     lineHeight: 23,
+  },
+
+  mapMarkerTriangle: {
+    width: 0,
+    height: 0,
+    borderLeftWidth: 10,
+    borderRightWidth: 10,
+    borderTopWidth: 10,
+    borderStyle: 'solid',
+    backgroundColor: 'transparent',
+    borderLeftColor: 'transparent',
+    borderRightColor: 'transparent',
+    borderTopColor: '#34CB79',
+    marginLeft: 35
   },
 
   itemsContainer: {

@@ -1,12 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Feather as Icon } from '@expo/vector-icons';
 import { View, Text, TextInput, KeyboardAvoidingView, Platform, Image, StyleSheet, ImageBackground } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import Dropdown from '../../components/Dropdown';
+import axios from 'axios';
+
+interface IBGEUFResponse {
+  sigla: string;
+}
+
+interface IBGECityResponse {
+  nome: string;
+}
+
+interface Item {
+  label: string;
+  value: string;
+}
 
 const Home = () => {
   const [uf, setUf] = useState('');
   const [city, setCity] = useState('');
+  
+  const [ufs, setUfs] = useState<Item[]>([]);
+  const [cities, setCities] = useState<Item[]>([]);
+
+  useEffect(()=> {
+    axios.get<IBGEUFResponse[]>("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
+    .then(response => {
+      const ufInitials = response.data.map(uf => {
+        return {
+          label: uf.sigla,
+          value: uf.sigla
+        }
+      });
+      setUfs(ufInitials);
+    });
+  }, [])
+  
+  useEffect(() => {
+    // Carregar cidades quando for selecionado um estado
+    if (uf === '') {
+      return;
+    }
+    axios.get<IBGECityResponse[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`)
+    .then(response => {
+      const cityNames = response.data.map(city => {
+        return {
+          label: city.nome,
+          value: city.nome
+        }
+      });
+      setCities(cityNames);
+    });
+
+  }, [uf]);
 
   const navigation = useNavigation();
 
@@ -35,7 +84,9 @@ const Home = () => {
           </Text>
         </View>
         <View style={styles.footer}>
-          <TextInput
+          <Dropdown items={ufs} onSelected={setUf} placeholderText={'Selecione o estado'}/>
+          <Dropdown items={cities} onSelected={setCity} placeholderText={'Selecione a cidade'}/>
+          {/* <TextInput
             style={styles.input}
             placeholder="Digite a UF"
             maxLength={2}
@@ -50,7 +101,7 @@ const Home = () => {
             autoCorrect={false}
             value={city}
             onChangeText={setCity}
-          />
+          /> */}
           <RectButton
             style={styles.button}
             onPress={handleNavigateToPoints}
