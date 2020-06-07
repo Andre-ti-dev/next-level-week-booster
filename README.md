@@ -73,3 +73,6 @@ E execute a aplicação com o comando.
 ```
 $ npm start
 ```
+
+### Ambiente de Testes
+É necessário alterar em `mobile/src/services/api.tsx`, `web/src/services/api.ts`, `server/src/controllers/ItemsController.ts` e `server/src/controllers/PointsController.ts` o host `http://10.0.0.150:3333` para o utilizado pelo Expo para poder testar utilizando o APP do Expo ou utilizar `http://localhost:3333` caso esteja testando apenas a aplicação Web.
