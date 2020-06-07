@@ -1,5 +1,5 @@
 # ♻ Ecoleta - Booster
-[![LANDING PAGE](https://raw.githubusercontent.com/Andre-ti-dev/next-level-week-booster/master/screenshots/landing-page.png)]()
+[![CAPA](https://raw.githubusercontent.com/Andre-ti-dev/next-level-week-booster/master/Ecoleta.png)]()
 
 Projeto com foco em pontos de coletas de resíduos que não podem ser colocados em conjunto com o lixo convencional como pilhas, baterias, entre outros.
 
@@ -48,6 +48,14 @@ Na pasta `server` instale as dependências com `npm`.
 ```
 $ npm install
 ```
+Execute a migration do banco de dados
+```
+$ npm run knex:migrate
+```
+Execute a seed
+```
+$ npm run knex:seed
+```
 E execute a aplicação com o comando.
 ```
 $ npm run dev
@@ -57,11 +65,11 @@ $ npm run dev
 
 > O projeto foi criado com o Expo utilizando yarn então aqui será utilizado ele.
 
-Na pasta `mobile` instale as dependências com `yarn`.
+Na pasta `mobile` instale as dependências com `npm`.
 ```
-$ yarn
+$ npm install
 ```
 E execute a aplicação com o comando.
 ```
-$ yarn start
+$ npm start
 ```
