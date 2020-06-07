@@ -6,6 +6,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import api from '../../services/api';
 import * as MailComposer from 'expo-mail-composer';
+import { AppLoading } from 'expo';
 
 interface Params {
   point_id: number;
@@ -57,7 +58,7 @@ const Detail = () => {
   }
 
   if (!data.point) {
-    return <View><Text>LOADING</Text></View>;
+    return <AppLoading />;
   }
 
   return (

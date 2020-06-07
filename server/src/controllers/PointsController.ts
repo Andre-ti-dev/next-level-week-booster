@@ -47,7 +47,7 @@ class PointsControllers {
     .select('title');
 
 
-    return response.json({serializedPoint, items});
+    return response.json({point: serializedPoint, items});
 
   }
 
